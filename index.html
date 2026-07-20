@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>$185 New Patient Package | Glenroy Smiles Dental — Dentist Glenroy VIC</title>
-<meta name="description" content="New patients pay just $185 for a comprehensive check-up, scale &amp; clean, x-rays and fluoride at Glenroy Smiles Dental. HICAPS — all health funds, claims on the spot. Book online or call (03) 9008 4561.">
+<title>No Gap New Patient Offer | Glenroy Smiles Dental — Dentist Glenroy VIC</title>
+<meta name="description" content="New patients pay no gap with any health fund until 31 August (or just $185 without insurance) for a comprehensive check-up, scale &amp; clean, x-rays and fluoride at Glenroy Smiles Dental. HICAPS — claims on the spot. Call (03) 9008 4561.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,6 +32,8 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:var(--body);color:var(--ink);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased}
+html,body{overflow-x:clip;max-width:100%}
+body{touch-action:pan-y pinch-zoom}
 img{max-width:100%;display:block}
 h1,h2,h3{font-family:var(--display);color:var(--navy);line-height:1.14;letter-spacing:-.015em}
 h2{font-size:clamp(1.7rem,4.5vw,2.5rem);font-weight:800}
@@ -61,6 +63,11 @@ a{color:var(--blue)}
 .btn-ghost{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.6);color:#fff;padding:.95rem 1.65rem;font-size:1rem;backdrop-filter:blur(6px)}
 .btn-ghost:hover{background:rgba(255,255,255,.22)}
 
+/* Top strip */
+.strip{background:var(--navy);color:#D6E1F1;font-size:.79rem;text-align:center;padding:.5rem 1rem;font-weight:500}
+.strip strong{color:#fff}
+.strip .hi{color:#9BE065;font-weight:700;letter-spacing:.05em}
+
 /* Header */
 header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:box-shadow .25s}
 header.scrolled{box-shadow:0 6px 24px rgba(20,33,63,.10)}
@@ -69,6 +76,11 @@ header.scrolled{box-shadow:0 6px 24px rgba(20,33,63,.10)}
 .nav-cta{display:flex;gap:.55rem}
 .nav .btn-book{display:none}
 @media(min-width:640px){.nav .btn-book{display:inline-flex}}
+@media(max-width:479px){
+  .nav img{height:32px}
+  .nav .btn-call{padding:.62rem .78rem}
+  .nav .btn-call .num{display:none}
+}
 
 /* Hero */
 .hero{position:relative;overflow:hidden;display:flex;align-items:center;min-height:88vh;padding:5rem 0 5.5rem;color:#fff;background:var(--navy)}
@@ -146,10 +158,15 @@ header.scrolled{box-shadow:0 6px 24px rgba(20,33,63,.10)}
 .gallery{background:var(--navy);color:#fff;overflow:hidden}
 .gallery h2{color:#fff}
 .gallery .section-sub{color:#C6D4E8}
-.g-track{display:flex;gap:1rem;margin-top:2.3rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem;-webkit-overflow-scrolling:touch}
-.g-track::-webkit-scrollbar{height:6px}
-.g-track::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25);border-radius:99px}
-.g-item{flex:0 0 auto;scroll-snap-align:center;border-radius:var(--r-md);overflow:hidden;position:relative;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.g-marquee{overflow:hidden;display:flex;gap:1rem;margin-top:2.3rem;width:100%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.g-row{display:flex;gap:1rem;flex-shrink:0;animation:mq 48s linear infinite;will-change:transform}
+.g-marquee:hover .g-row,.g-marquee:active .g-row{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(calc(-100% - 1rem))}}
+@media(prefers-reduced-motion:reduce){
+  .g-marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+  .g-row{animation:none}
+}
+.g-item{flex:0 0 auto;border-radius:var(--r-md);overflow:hidden;position:relative;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .g-item img{height:300px;width:auto;transition:transform .5s ease}
 .g-item:hover img{transform:scale(1.05)}
 .g-item .cap{position:absolute;left:0;right:0;bottom:0;padding:1.6rem .9rem .7rem;background:linear-gradient(transparent,rgba(13,22,45,.85));font-size:.8rem;font-weight:600;color:#EAF1F9}
@@ -242,12 +259,15 @@ footer a{color:#C6D4E8}
 </head>
 <body>
 
+<!-- Top strip -->
+<div class="strip"><span class="hi">HICAPS</span> &nbsp;·&nbsp; <strong>We accept all health funds</strong> — claims processed on the spot</div>
+
 <!-- Header -->
 <header id="hdr">
   <div class="wrap nav">
     <img src="img/logo.png" alt="Glenroy Smiles Dental" width="383" height="65">
     <div class="nav-cta">
-      <a class="btn btn-call" href="tel:0390084561"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(03) 9008 4561</a>
+      <a class="btn btn-call" href="tel:0390084561"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="num">(03) 9008 4561</span></a>
       <a class="btn btn-book" href="https://appointments.praktika.net.au/online-booking/step1?Apikey=5953062b-0e22-4601-803d-8837b55abade" target="_blank" rel="noopener">Book online</a>
     </div>
   </div>
@@ -258,9 +278,9 @@ footer a{color:#C6D4E8}
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-inner">
-      <span class="hero-eyebrow rv">New patient offer — Glenroy VIC</span>
-      <h1 class="rv" style="--d:.08s">New Patient Package<br><span class="price">Pay only $185</span></h1>
-      <p class="lede rv" style="--d:.16s">A comprehensive first visit at Glenroy's relaxed, modern dental clinic — everything you need for a healthy start.</p>
+      <span class="hero-eyebrow rv">Limited time — offer ends 31 August</span>
+      <h1 class="rv" style="--d:.08s">New Patients Pay<br><span class="price">No Gap*</span></h1>
+      <p class="lede rv" style="--d:.16s">A comprehensive first visit with <strong style="color:#fff">no out-of-pocket cost</strong> when you claim with any health fund. No health insurance? Pay just $185.</p>
       <div class="hero-includes rv" style="--d:.24s">
         <span>Comprehensive check-up</span>
         <span>Scale &amp; clean</span>
@@ -321,9 +341,9 @@ footer a{color:#C6D4E8}
     <h2 class="center rv">Quality care at a competitive price</h2>
     <div class="offer-grid">
       <div class="offer offer-featured rv">
-        <div class="tag">$185 <span class="sm">new patients</span></div>
+        <div class="tag">No Gap<span class="sm">* until 31 Aug</span></div>
         <h3>New Patient Package</h3>
-        <p>Comprehensive check-up, scale &amp; clean, digital x-rays and fluoride treatment.</p>
+        <p>Comprehensive check-up, scale &amp; clean, digital x-rays and fluoride treatment. No gap with any health fund — or just $185 without insurance.</p>
         <a href="https://appointments.praktika.net.au/online-booking/step1?Apikey=5953062b-0e22-4601-803d-8837b55abade" target="_blank" rel="noopener">Book now</a>
       </div>
       <div class="offer rv" style="--d:.1s">
@@ -345,7 +365,7 @@ footer a{color:#C6D4E8}
         <a href="tel:0390084561">Check eligibility</a>
       </div>
     </div>
-    <p class="fineprint rv">*Conditions apply. Any surgical or invasive procedure carries risks. Before proceeding, you should seek a second opinion from an appropriately qualified health practitioner.</p>
+    <p class="fineprint rv">*No gap offer available to new patients with a valid Australian health fund with dental extras cover, for the New Patient Package only, until 31 August 2026. Benefit subject to your fund's annual limits. Conditions apply. Any surgical or invasive procedure carries risks. Before proceeding, you should seek a second opinion from an appropriately qualified health practitioner.</p>
   </div>
 </section>
 
@@ -369,13 +389,16 @@ footer a{color:#C6D4E8}
     <h2 class="center rv">Designed around your comfort</h2>
     <p class="section-sub rv">Take a look around our modern Pascoe Vale Road clinic.</p>
   </div>
-  <div class="wrap g-track">
-    <div class="g-item rv"><img src="img/g-logo-wall.jpg" alt="Glenroy Smiles Dental reception signage" loading="lazy"><div class="cap">Reception</div></div>
-    <div class="g-item rv" style="--d:.08s"><img src="img/g-lounge.jpg" alt="Comfortable patient waiting lounge" loading="lazy"><div class="cap">Waiting lounge</div></div>
-    <div class="g-item rv" style="--d:.16s"><img src="img/g-surgery.jpg" alt="Modern treatment room" loading="lazy"><div class="cap">Treatment rooms</div></div>
-    <div class="g-item rv" style="--d:.24s"><img src="img/g-kids.jpg" alt="Gentle children's dentistry" loading="lazy"><div class="cap">Kids' dentistry</div></div>
-    <div class="g-item rv" style="--d:.32s"><img src="img/g-opg.jpg" alt="On-site digital OPG x-ray technology" loading="lazy"><div class="cap">Digital x-ray on site</div></div>
-    <div class="g-item rv" style="--d:.4s"><img src="img/g-entry.jpg" alt="Clinic entrance on Pascoe Vale Road" loading="lazy"><div class="cap">Easy street access</div></div>
+  <div class="g-marquee" id="gmq">
+    <div class="g-row">
+      <div class="g-item"><img src="img/g-logo-wall.jpg" alt="Glenroy Smiles Dental reception signage" loading="lazy"><div class="cap">Reception</div></div>
+      <div class="g-item"><img src="img/g-lounge.jpg" alt="Comfortable patient waiting lounge" loading="lazy"><div class="cap">Waiting lounge</div></div>
+      <div class="g-item"><img src="img/g-surgery.jpg" alt="Modern treatment room" loading="lazy"><div class="cap">Treatment rooms</div></div>
+      <div class="g-item"><img src="img/g-care.jpg" alt="Your care team in the treatment room" loading="lazy"><div class="cap">Your care team</div></div>
+      <div class="g-item"><img src="img/g-kids.jpg" alt="Gentle children's dentistry" loading="lazy"><div class="cap">Kids' dentistry</div></div>
+      <div class="g-item"><img src="img/g-opg.jpg" alt="On-site digital OPG x-ray technology" loading="lazy"><div class="cap">Digital x-ray on site</div></div>
+      <div class="g-item"><img src="img/g-entry.jpg" alt="Clinic entrance on Pascoe Vale Road" loading="lazy"><div class="cap">Easy street access</div></div>
+    </div>
   </div>
 </section>
 
@@ -506,10 +529,14 @@ footer a{color:#C6D4E8}
     <div class="center rv"><span class="eyebrow">FAQs</span></div>
     <h2 class="center rv">Frequently asked questions</h2>
     <details class="rv">
-      <summary>What's included in the $185 New Patient Package?</summary>
+      <summary>What's included in the New Patient Package?</summary>
       <p>New patients receive a comprehensive dental check-up, scale and clean, digital x-rays and fluoride treatment — everything needed to assess your oral health and create a personalised treatment plan.</p>
     </details>
     <details class="rv" style="--d:.06s">
+      <summary>How does the no gap offer work?</summary>
+      <p>If you have an Australian health fund with dental extras cover, we'll process your claim on the spot with HICAPS and waive the remaining gap — so your first visit costs you nothing out of pocket. The offer runs until 31 August for new patients. If you don't have health insurance, the same package is just $185.</p>
+    </details>
+    <details class="rv" style="--d:.09s">
       <summary>Can I claim through my health fund?</summary>
       <p>Yes. We accept all health funds and process claims on the spot with HICAPS — just bring your health fund card to your appointment.</p>
     </details>
@@ -536,7 +563,7 @@ footer a{color:#C6D4E8}
 <section class="final">
   <div class="wrap">
     <h2 class="rv">Ready for a healthier smile?</h2>
-    <p class="rv" style="--d:.08s">Book your $185 New Patient Package online in under a minute, or call our friendly team today.</p>
+    <p class="rv" style="--d:.08s">Book your no gap* new patient visit online in under a minute — offer ends 31 August — or call our friendly team today.</p>
     <div class="cta-row rv" style="--d:.16s">
       <a class="btn btn-book btn-lg" href="https://appointments.praktika.net.au/online-booking/step1?Apikey=5953062b-0e22-4601-803d-8837b55abade" target="_blank" rel="noopener">Book online now</a>
       <a class="btn btn-call btn-lg" href="tel:0390084561"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(03) 9008 4561</a>
@@ -562,6 +589,13 @@ addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 10),
 
 // Scroll reveal
 const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Gallery marquee: clone the row so the loop is seamless
+const gmq = document.getElementById('gmq');
+if (gmq && !prefersReduced) {
+  const row = gmq.querySelector('.g-row');
+  gmq.appendChild(row.cloneNode(true));
+}
 const els = document.querySelectorAll('.rv');
 if (prefersReduced || !('IntersectionObserver' in window)) {
   els.forEach(el => el.classList.add('in'));
